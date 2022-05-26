@@ -1,10 +1,12 @@
-﻿namespace norilskyNikel1.EF
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace norilskyNikel1.EF
 {
     public class Brilliant
     {
-        public int Id;
-        public string name;
-        public string description;
-        public ProductCategory category;
+        public int Id { get; set; }
+        public string name { get; set; }
+        public string description { get; set; }
+        public int ProductCategoryId { get; set; }
     }
 }

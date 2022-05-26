@@ -2,11 +2,9 @@
 {
     public class Metal
     {
-        public int Id;
-        public string name;
-        public string description;
-        public ProductCategory category;
-
-
+        public int Id { get; set; }
+        public string name { get; set; }
+        public string description { get; set; }
+        public int ProductCategoryId { get; set; }
     }
 }

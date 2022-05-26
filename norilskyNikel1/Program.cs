@@ -1,3 +1,5 @@
+using norilskyNikel1.EF;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -22,6 +24,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Resourses}/{action=Show}/{id?}");
 
 app.Run();
+

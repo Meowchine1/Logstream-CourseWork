@@ -1,0 +1,27 @@
+﻿@{
+    Layout = "Master.cshtml";
+}
+@using NorilskNikel.EF
+
+<div>
+    @if (ViewBag.flag)
+    {
+         @foreach(Resourses r in ViewBag.result)
+    {
+        <a href = "/Nornikel/Resourse/@r.path">
+               <h2 align="center">@r.name</h2>
+        </a>
+         <p class="pic">
+            <img src = "/images/@(r.Id).jpg" alt = "@r.name" width="200" height="200">
+        </p>
+       <p>@r.description</p>
+
+        }
+    }
+    else
+    {
+        <h1  align="center">Empty response</h1>
+    }
+
+   
+</div>
