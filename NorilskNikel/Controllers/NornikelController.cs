@@ -82,8 +82,9 @@ namespace NorilskNikel.Controllers
                 NornikelContext db = new NornikelContext();
 
                 var result = db.resourses.Where(x => x.name.ToLower().Contains(request.ToLower())).ToList();
+
                 ViewBag.result = result;
-                ViewBag.flag = true;
+                ViewBag.flag = (result.Count() != 0)? true : false ;
                 ViewBag.Categories = db.categories.ToList();
             }
 

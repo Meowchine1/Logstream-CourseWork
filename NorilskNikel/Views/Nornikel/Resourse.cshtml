@@ -4,22 +4,15 @@
 @using NorilskNikel.EF
 
 <a href ="/">
-<h1> Nornikel</h1>
+<h1  align="center" >  Nornikel</h1>
 </a>
  
-
 <div>
-    @foreach (Categories  c in ViewBag.Categories)
-    {
-        <a href = "/Nornikel/Index/@c.Id">@c.Name</a> @Html.Raw("|")
-    }
-</div>
-<div>
-       <h2>@ViewBag.Resourse.name</h2>
+       <h2 align="center" >@ViewBag.Resourse.name</h2>
         <p class="pic">
-       <img src = "/images/@(ViewBag.Resourse.Id).jpg" alt = "@ViewBag.Resourse.name"/>
+       <img src = "/images/@(ViewBag.Resourse.Id).jpg" alt = "@ViewBag.Resourse.name"  width="200" height="200"/>
         </p>
-       <p>@ViewBag.Resourse.description</p>
+       <p  align="center" >@ViewBag.Resourse.description</p>
        
     
 </div>
