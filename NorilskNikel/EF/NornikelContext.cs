@@ -5,6 +5,7 @@ namespace NorilskNikel.EF
     {
         public DbSet<Categories> categories { get; set; }
         public DbSet<Resourses> resourses { get; set; }
+        public DbSet<ChatMessages> chatMessages { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder

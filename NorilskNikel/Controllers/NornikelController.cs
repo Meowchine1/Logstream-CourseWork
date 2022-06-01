@@ -29,7 +29,7 @@ namespace NorilskNikel.Controllers
             return View();
         }
 
-        public IActionResult Resourse(string id) {
+        public IActionResult Resourse(string id, string name, string message) {
 
             NornikelContext db = new NornikelContext();
             Resourses r = db.resourses.FirstOrDefault(x => x.path == id);
@@ -90,6 +90,16 @@ namespace NorilskNikel.Controllers
 
             return View();
            
+        }
+
+        public Resourses BestResourses()
+        {
+            NornikelContext db = new NornikelContext();
+            Random rand = new Random();
+            int toSkip = rand.Next(1, db.resourses.Count());
+
+            return db.resourses.Skip(toSkip).Take(1).FirstOrDefault();
+      
         }
       
     }

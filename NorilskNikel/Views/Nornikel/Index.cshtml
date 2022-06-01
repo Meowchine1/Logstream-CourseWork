@@ -2,6 +2,9 @@
 @{
     Layout = "Master.cshtml";
 }
+  <div id="bestResourses">
+ 
+        </div>
 
  <div class="slide-one-item home-slider owl-carousel"><!------->
 
@@ -96,39 +99,33 @@
       </div>
     </div>
 
-    <div class="site-section">
-      
-      <div class="container">
-        <div class="row mb-5 justify-content-center">
-          <div class="col-12 text-center">
-            <h2 class="font-weight-light text-black display-4">Our Production</h2>
-          </div>
-          <div class="col-md-7 text-center">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum iusto eaque qui illo cumque officia nobis assumenda odit perferendis ipsam dolore.</p>
-          </div>
-        </div>
-         <div class="row no-gutters align-items-stretch h-100">
-           @foreach(Categories r in ViewBag.Categories)
-                {
-                     <div class="col-lg-6">
-            <div class="row no-gutters align-items-stretch h-100 half-sm">
-              <div class="col-md-6 bg-image bg-sm-height" style="background-image: url('images/@(r.Id).jpg');" data-aos="fade" data-aos-delay="0"></div>
-              <div class="col-md-6 bg-light text">
-                <div class="p-4">
-                  <h2 class="h5 mb-3 text-black line-height-sm">@r.Article</h2>
-                  <p>@r.Description</p>
-                  <p class="mb-0"><a href="/Nornikel/CategoryResourses/@(r.Id)" class=""><small class="text-uppercase font-weight-bold text-black">Buy now</small></a></p> <!-------->
-                </div>
-              </div>
-            </div>
-          </div>
-                }
-         
-        </div>
-      </div>
-    </div>
+
     <div class="promo py-5 bg-primary" data-aos="fade">
       <div class="container text-center">
         <h2 class="d-block mb-0 font-weight-light text-white"><a href="#" class="text-white d-block">Contact us for quotations</a></h2>
       </div>
     </div>
+
+
+     <script>
+    const bestResourses = document.getElementById("bestResourses");
+
+    setInterval(() => {
+  
+
+        const oReq = new XMLHttpRequest();
+        oReq.onload = reqListener;
+        oReq.open("get", "/Nornikel/BestResourses", true);
+        oReq.send();
+
+    },5000);
+
+     function reqListener () {
+         bestResourses.innerHTML = '';
+         const data = JSON.parse(this.responseText);
+         bestResourses.insertAdjacentHTML('afterbegin', `<p align="center">${data.name}</p>`);
+          
+        }
+
+  </script>
+  </script>

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NorilskNikel.EF;
 
@@ -11,9 +12,10 @@ using NorilskNikel.EF;
 namespace NorilskNikel.Migrations
 {
     [DbContext(typeof(NornikelContext))]
-    partial class NornikelContextModelSnapshot : ModelSnapshot
+    [Migration("20220601110016_chatMessagesAddCategoryId")]
+    partial class chatMessagesAddCategoryId
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
