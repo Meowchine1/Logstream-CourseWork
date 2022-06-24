@@ -20,8 +20,19 @@ app.UseRouting();
 
 app.UseAuthorization();
 
-app.MapControllerRoute(
+app.UseEndpoints( endpoints =>
+{
+    app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Nornikel}/{action=Index}/{id?}");
 
+    app.MapControllerRoute(
+        name: "admin",
+        pattern: "{area:exists}/{controller=Nornikel}/{action=Index}/{id?}");
+
+
+}
+    );
+
+ 
 app.Run();

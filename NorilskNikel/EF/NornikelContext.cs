@@ -1,4 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.Configuration;
+
 namespace NorilskNikel.EF
 {
     public class NornikelContext : DbContext
@@ -7,6 +9,11 @@ namespace NorilskNikel.EF
         public DbSet<Resourses> resourses { get; set; }
         public DbSet<ChatMessages> chatMessages { get; set; }
 
+        public NornikelContext(DbContextOptions<NornikelContext> options)
+             : base(options)
+        {
+            Database.EnsureCreated();
+        }
 
         protected override void OnConfiguring(DbContextOptionsBuilder
             optionsBuilder)
