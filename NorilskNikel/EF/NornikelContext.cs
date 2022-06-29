@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using System.Configuration;
 
 namespace NorilskNikel.EF
@@ -8,25 +9,55 @@ namespace NorilskNikel.EF
         public DbSet<Categories> categories { get; set; }
         public DbSet<Resourses> resourses { get; set; }
         public DbSet<ChatMessages> chatMessages { get; set; }
+        public DbSet<User> Users { get; set; }
+     
 
-        public NornikelContext(DbContextOptions<NornikelContext> options)
-             : base(options)
-        {
-            Database.EnsureCreated();
-        }
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder
             optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=LAPTOP-NA2LFB37;Database=NorilskNikel;Trusted_Connection=True");
+            optionsBuilder.UseSqlServer(@"Server=WIN-QGN772BFJ6Q\MYSQL;Database=NorilskNikel;Trusted_Connection=True");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            var brilliant = new Categories { Id = 20, Name = "Brillliant" };
-            var metal = new Categories { Id = 21, Name = "Metal" };
 
-                
+            modelBuilder.Entity<IdentityRole>().HasData(new IdentityRole
+            {
+                Id = "1",
+                Name = "admin"
+            },
+            new IdentityRole 
+            {
+                Id = "0",
+                Name = "default"
+            }
+            );
+
+            modelBuilder.Entity<IdentityUser>().HasData(new IdentityUser
+            {
+                Id = "111",
+                Email = "",
+                EmailConfirmed = true,
+                Password = new PasswordHasher<IdentityUser>().HashPassword(null, "12345678")
+            }
+                );
+
+            modelBuilder.Entity<IdentityUserRole>().HasData(new IdentityUserRole
+            {
+                RoleId = "1",
+                UserId = "111",
+            });
+            
+            modelBuilder.Entity<Categories>().HasData(
+                new Categories[]
+                {
+                    new Categories{ Id = 21, Name = "Metal", Article = "", Description = ""},
+                    new Categories{ Id = 20, Name = "Diamond", Article = "", Description = "" }
+                }
+                ); 
+            
             modelBuilder.Entity<Resourses>().HasData(
 
                  new Resourses[]
