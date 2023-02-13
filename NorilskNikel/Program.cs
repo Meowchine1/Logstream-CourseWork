@@ -30,7 +30,6 @@ app.UseEndpoints( endpoints =>
         name: "admin",
         pattern: "{area:exists}/{controller=Nornikel}/{action=Index}/{id?}");
 
-
 }
     );
 

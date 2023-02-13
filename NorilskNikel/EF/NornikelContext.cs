@@ -15,6 +15,10 @@ namespace NorilskNikel.EF
             Database.EnsureCreated();
         }
 
+        public NornikelContext()
+        {
+        }
+
         protected override void OnConfiguring(DbContextOptionsBuilder
             optionsBuilder)
         {
